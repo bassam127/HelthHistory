@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HealthHistoryModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="HealthHistoryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="HealthHistoryModel.City" />
+    <EntitySet Name="Nationalities" EntityType="HealthHistoryModel.Nationality" />
+    <EntitySet Name="Organizations" EntityType="HealthHistoryModel.Organization" />
+    <EntitySet Name="OrganizationTypes" EntityType="HealthHistoryModel.OrganizationType" />
+    <EntitySet Name="Patients" EntityType="HealthHistoryModel.Patient" />
+    <EntitySet Name="PatientMedicins" EntityType="HealthHistoryModel.PatientMedicin" />
+    <EntitySet Name="PatientRegs" EntityType="HealthHistoryModel.PatientReg" />
+    <EntitySet Name="Proc_Category" EntityType="HealthHistoryModel.Proc_Category" />
+    <EntitySet Name="Proc_Type" EntityType="HealthHistoryModel.Proc_Type" />
+    <EntitySet Name="Sec_Users" EntityType="HealthHistoryModel.Sec_Users" />
+    <EntitySet Name="Sec_UserType" EntityType="HealthHistoryModel.Sec_UserType" />
+    <EntitySet Name="sysdiagrams" EntityType="HealthHistoryModel.sysdiagram" />
+    <AssociationSet Name="FK_Patient_City1" Association="HealthHistoryModel.FK_Patient_City1">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Patient" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Nationality" Association="HealthHistoryModel.FK_Patient_Nationality">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="Patient" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_OrganizationType" Association="HealthHistoryModel.FK_Organization_OrganizationType">
+      <End Role="OrganizationType" EntitySet="OrganizationTypes" />
+      <End Role="Organization" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_Sec_Users" Association="HealthHistoryModel.FK_Organization_Sec_Users">
+      <End Role="Sec_Users" EntitySet="Sec_Users" />
+      <End Role="Organization" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReg_Organization" Association="HealthHistoryModel.FK_PatientReg_Organization">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="PatientReg" EntitySet="PatientRegs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Sec_Users1" Association="HealthHistoryModel.FK_Patient_Sec_Users1">
+      <End Role="Sec_Users" EntitySet="Sec_Users" />
+      <End Role="Patient" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientMedicin_Patient" Association="HealthHistoryModel.FK_PatientMedicin_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="PatientMedicin" EntitySet="PatientMedicins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReg_Patient" Association="HealthHistoryModel.FK_PatientReg_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="PatientReg" EntitySet="PatientRegs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientMedicin_PatientReg" Association="HealthHistoryModel.FK_PatientMedicin_PatientReg">
+      <End Role="PatientReg" EntitySet="PatientRegs" />
+      <End Role="PatientMedicin" EntitySet="PatientMedicins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReg_Proc_Type" Association="HealthHistoryModel.FK_PatientReg_Proc_Type">
+      <End Role="Proc_Type" EntitySet="Proc_Type" />
+      <End Role="PatientReg" EntitySet="PatientRegs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proc_Type_Proc_Category" Association="HealthHistoryModel.FK_Proc_Type_Proc_Category">
+      <End Role="Proc_Category" EntitySet="Proc_Category" />
+      <End Role="Proc_Type" EntitySet="Proc_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sec_Users_Sec_UserType" Association="HealthHistoryModel.FK_Sec_Users_Sec_UserType">
+      <End Role="Sec_UserType" EntitySet="Sec_UserType" />
+      <End Role="Sec_Users" EntitySet="Sec_Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Patients" Relationship="HealthHistoryModel.FK_Patient_City1" FromRole="City" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Patients" Relationship="HealthHistoryModel.FK_Patient_Nationality" FromRole="Nationality" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orgtypeid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="e_mail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="OrganizationType" Relationship="HealthHistoryModel.FK_Organization_OrganizationType" FromRole="Organization" ToRole="OrganizationType" />
+    <NavigationProperty Name="Sec_Users" Relationship="HealthHistoryModel.FK_Organization_Sec_Users" FromRole="Organization" ToRole="Sec_Users" />
+    <NavigationProperty Name="PatientRegs" Relationship="HealthHistoryModel.FK_PatientReg_Organization" FromRole="Organization" ToRole="PatientReg" />
+  </EntityType>
+  <EntityType Name="OrganizationType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Organizations" Relationship="HealthHistoryModel.FK_Organization_OrganizationType" FromRole="OrganizationType" ToRole="Organization" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="mothername" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cityid" Type="Int32" />
+    <Property Name="natid" Type="Int32" />
+    <Property Name="nationalityno" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="HealthHistoryModel.FK_Patient_City1" FromRole="Patient" ToRole="City" />
+    <NavigationProperty Name="Nationality" Relationship="HealthHistoryModel.FK_Patient_Nationality" FromRole="Patient" ToRole="Nationality" />
+    <NavigationProperty Name="Sec_Users" Relationship="HealthHistoryModel.FK_Patient_Sec_Users1" FromRole="Patient" ToRole="Sec_Users" />
+    <NavigationProperty Name="PatientMedicins" Relationship="HealthHistoryModel.FK_PatientMedicin_Patient" FromRole="Patient" ToRole="PatientMedicin" />
+    <NavigationProperty Name="PatientRegs" Relationship="HealthHistoryModel.FK_PatientReg_Patient" FromRole="Patient" ToRole="PatientReg" />
+  </EntityType>
+  <EntityType Name="PatientMedicin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="opregid" Type="Int32" />
+    <Property Name="patientid" Type="Int32" />
+    <Property Name="medicinname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="fromdate" Type="DateTime" />
+    <Property Name="todate" Type="DateTime" />
+    <Property Name="note" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Patient" Relationship="HealthHistoryModel.FK_PatientMedicin_Patient" FromRole="PatientMedicin" ToRole="Patient" />
+    <NavigationProperty Name="PatientReg" Relationship="HealthHistoryModel.FK_PatientMedicin_PatientReg" FromRole="PatientMedicin" ToRole="PatientReg" />
+  </EntityType>
+  <EntityType Name="PatientReg">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patientid" Type="Int32" />
+    <Property Name="orgid" Type="Int32" />
+    <Property Name="ProcTypeId" Type="Int32" Nullable="false" />
+    <Property Name="procdate" Type="DateTime" />
+    <Property Name="procdesc" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Organization" Relationship="HealthHistoryModel.FK_PatientReg_Organization" FromRole="PatientReg" ToRole="Organization" />
+    <NavigationProperty Name="Patient" Relationship="HealthHistoryModel.FK_PatientReg_Patient" FromRole="PatientReg" ToRole="Patient" />
+    <NavigationProperty Name="PatientMedicins" Relationship="HealthHistoryModel.FK_PatientMedicin_PatientReg" FromRole="PatientReg" ToRole="PatientMedicin" />
+    <NavigationProperty Name="Proc_Type" Relationship="HealthHistoryModel.FK_PatientReg_Proc_Type" FromRole="PatientReg" ToRole="Proc_Type" />
+  </EntityType>
+  <EntityType Name="Proc_Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Proc_Type" Relationship="HealthHistoryModel.FK_Proc_Type_Proc_Category" FromRole="Proc_Category" ToRole="Proc_Type" />
+  </EntityType>
+  <EntityType Name="Proc_Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PatientRegs" Relationship="HealthHistoryModel.FK_PatientReg_Proc_Type" FromRole="Proc_Type" ToRole="PatientReg" />
+    <NavigationProperty Name="Proc_Category" Relationship="HealthHistoryModel.FK_Proc_Type_Proc_Category" FromRole="Proc_Type" ToRole="Proc_Category" />
+  </EntityType>
+  <EntityType Name="Sec_Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Organizations" Relationship="HealthHistoryModel.FK_Organization_Sec_Users" FromRole="Sec_Users" ToRole="Organization" />
+    <NavigationProperty Name="Patients" Relationship="HealthHistoryModel.FK_Patient_Sec_Users1" FromRole="Sec_Users" ToRole="Patient" />
+    <NavigationProperty Name="Sec_UserType" Relationship="HealthHistoryModel.FK_Sec_Users_Sec_UserType" FromRole="Sec_Users" ToRole="Sec_UserType" />
+  </EntityType>
+  <EntityType Name="Sec_UserType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Sec_Users" Relationship="HealthHistoryModel.FK_Sec_Users_Sec_UserType" FromRole="Sec_UserType" ToRole="Sec_Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Patient_City1">
+    <End Role="City" Type="HealthHistoryModel.City" Multiplicity="0..1" />
+    <End Role="Patient" Type="HealthHistoryModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_Nationality">
+    <End Role="Nationality" Type="HealthHistoryModel.Nationality" Multiplicity="0..1" />
+    <End Role="Patient" Type="HealthHistoryModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="natid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_OrganizationType">
+    <End Role="OrganizationType" Type="HealthHistoryModel.OrganizationType" Multiplicity="1" />
+    <End Role="Organization" Type="HealthHistoryModel.Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrganizationType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Organization">
+        <PropertyRef Name="orgtypeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_Sec_Users">
+    <End Role="Sec_Users" Type="HealthHistoryModel.Sec_Users" Multiplicity="0..1" />
+    <End Role="Organization" Type="HealthHistoryModel.Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sec_Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Organization">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReg_Organization">
+    <End Role="Organization" Type="HealthHistoryModel.Organization" Multiplicity="0..1" />
+    <End Role="PatientReg" Type="HealthHistoryModel.PatientReg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PatientReg">
+        <PropertyRef Name="orgid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_Sec_Users1">
+    <End Role="Sec_Users" Type="HealthHistoryModel.Sec_Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Patient" Type="HealthHistoryModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sec_Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientMedicin_Patient">
+    <End Role="Patient" Type="HealthHistoryModel.Patient" Multiplicity="0..1" />
+    <End Role="PatientMedicin" Type="HealthHistoryModel.PatientMedicin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PatientMedicin">
+        <PropertyRef Name="patientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReg_Patient">
+    <End Role="Patient" Type="HealthHistoryModel.Patient" Multiplicity="0..1" />
+    <End Role="PatientReg" Type="HealthHistoryModel.PatientReg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PatientReg">
+        <PropertyRef Name="patientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientMedicin_PatientReg">
+    <End Role="PatientReg" Type="HealthHistoryModel.PatientReg" Multiplicity="0..1" />
+    <End Role="PatientMedicin" Type="HealthHistoryModel.PatientMedicin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientReg">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PatientMedicin">
+        <PropertyRef Name="opregid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReg_Proc_Type">
+    <End Role="Proc_Type" Type="HealthHistoryModel.Proc_Type" Multiplicity="1" />
+    <End Role="PatientReg" Type="HealthHistoryModel.PatientReg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proc_Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PatientReg">
+        <PropertyRef Name="ProcTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proc_Type_Proc_Category">
+    <End Role="Proc_Category" Type="HealthHistoryModel.Proc_Category" Multiplicity="1" />
+    <End Role="Proc_Type" Type="HealthHistoryModel.Proc_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proc_Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Proc_Type">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sec_Users_Sec_UserType">
+    <End Role="Sec_UserType" Type="HealthHistoryModel.Sec_UserType" Multiplicity="1" />
+    <End Role="Sec_Users" Type="HealthHistoryModel.Sec_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sec_UserType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sec_Users">
+        <PropertyRef Name="UserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

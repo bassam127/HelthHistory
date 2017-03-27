@@ -1,0 +1,29 @@
+c:\users\rasheed\documents\visual studio 2010\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.csprojResolveAssemblyReference.cache
+c:\users\rasheed\documents\visual studio 2010\Projects\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll
+c:\users\rasheed\documents\visual studio 2010\Projects\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.pdb
+c:\users\rasheed\documents\visual studio 2010\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.dll
+c:\users\rasheed\documents\visual studio 2010\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.pdb
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.pdb
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\Telerik.Web.UI.xml
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.csprojResolveAssemblyReference.cache
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.dll
+C:\Users\ryam\Desktop\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.pdb
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.pdb
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\bin\Telerik.Web.UI.xml
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.dll
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.pdb
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.pdb
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\bin\Telerik.Web.UI.xml
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.csprojResolveAssemblyReference.cache
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.dll
+C:\Users\ryam\Desktop\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.pdb
+D:\jinor my project\project\HealthHistorySystem\HealthHistorySystem\HealthHistorySystem\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll.config
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.dll
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\bin\HealthHistorySystem.pdb
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.csprojResolveAssemblyReference.cache
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.dll
+C:\Users\beso__000\Documents\Visual Studio 2015\Projects\HealthHistorySystem\HealthHistorySystem\obj\Debug\HealthHistorySystem.pdb

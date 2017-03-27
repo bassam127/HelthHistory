@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HealthHistorySystem.Site" %>
+
+<%@ Register Assembly="Telerik.Web.UI, Version=2013.1.403.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4"
+    Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link type="text/css" rel="Stylesheet" href="Styles/Style.css" />
+    <link href="images/favicon.png" rel="shortcut icon" />
+    <script type="text/javascript">
+        //centering add & edit popup at the center of the page - window
+        var popUp;
+        function PopUpShowing(sender, eventArgs) {
+            popUp = eventArgs.get_popUp();
+            var WindowWidth = $(window).width();
+            var WindowHeight = $(window).height();
+            var popUpWidth = popUp.style.width.substr(0, popUp.style.width.indexOf("px"));
+            var popUpHeight = popUp.style.height.substr(0, popUp.style.height.indexOf("px"));
+            popUp.style.left = ((WindowWidth - popUpWidth) / 2) + "px";
+            popUp.style.top = ((WindowHeight - popUpHeight) / 2) + "px";
+        } 
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager" runat="server">
+    </telerik:RadScriptManager>
+    <asp:Panel ID="loginStatusPanel" runat="server" CssClass="loginStatus">
+        <asp:Label ID="lblUserName" runat="server" Text="User Name: "></asp:Label>
+        <asp:Label ID="UserName" runat="server"></asp:Label>
+        <div class="clear">
+        </div>
+        <asp:LinkButton ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click"
+            CausesValidation="false"></asp:LinkButton>
+    </asp:Panel>
+    <div id="container" class="margin">
+        <div id="header">
+            <div id="logo" class="float_left">
+            </div>
+            <div id="slogan" class="float_left">
+                <h2>
+                    Health History System
+                </h2>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="hor_menu" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="slider_area" runat="server">
+            </asp:ContentPlaceHolder>
+            <div id="main_content">
+                <asp:ContentPlaceHolder ID="left_column_area" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="content_area" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <a href="#">Copyright 2012 &copy; | All Rights Reserved.</a>
+    </div>
+    </form>
+</body>
+</html>
